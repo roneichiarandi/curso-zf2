@@ -1,7 +1,9 @@
 <?php
 return array(
     'modules' => array(
-        'Application',
+        'DoctrineModule',
+        'DoctrineORMModule',    
+        'Livraria'
     ),
     'module_listener_options' => array(
         'config_glob_paths'    => array(

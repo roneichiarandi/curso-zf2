@@ -1,0 +1,19 @@
+<h1>Categorias</h1>
+<br>
+<table class="table table-striped">
+	<tr>
+		<th>#</th>
+		<th>CATEGORIA</th>
+		<th>AÇÃO</th>
+	</tr>
+
+	<?php foreach ($this->data as $entity): ?>
+		<tr>
+			<td><?= $entity->getId(); ?></td>
+			<td><?= $entity->getNome(); ?></td>
+			<td></td>
+		</tr>
+	<?php endforeach; ?>
+</table>
+
+<?php echo $this->paginationControl($this->data, 'Sliding', 'paginator'); ?>
