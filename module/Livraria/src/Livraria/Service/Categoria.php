@@ -23,5 +23,4 @@ class Categoria {
 		$this->em->flush();
 		return $entity;
 	}
-
 }
