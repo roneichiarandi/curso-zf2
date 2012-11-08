@@ -31,7 +31,14 @@
                     <a class="brand" href="<?php echo $this->url('livraria-home') ?>">Livraria</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li class="active"><a href="<?php echo $this->url('livraria-home') ?>">Home</a></li>
+                            <?php if($this->UserIdentity('LivrariaAdmin')): ?>
+                                <li class="active"><a href="<?php echo $this->url('livraria-admin', array('controller' => 'categorias')) ?>">Categorias</a></li>
+                                <li class="active"><a href="<?php echo $this->url('livraria-admin', array('controller' => 'livros')) ?>">Livros</a></li>
+                                <li class="active"><a href="<?php echo $this->url('livraria-admin', array('controller' => 'users')) ?>">Users</a></li>
+                                <li class="active"><a href="<?php echo $this->url('livraria-admin-auth') ?>">Logout</a></li>
+                            <?php else: ?>
+                                <li class="active"><a href="<?php echo $this->url('livraria-admin-auth') ?>">Admin</a></li>
+                            <?php endif; ?>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>

@@ -1,5 +1,8 @@
 <h1>Categorias</h1>
 <br>
+<p>
+	<a href="<?php echo $this->url('livraria-admin', array('controller'=>'categorias', 'action'=>'add')); ?>">Novo</a>
+</p>
 <table class="table table-striped">
 	<tr>
 		<th>#</th>
@@ -11,7 +14,10 @@
 		<tr>
 			<td><?= $entity->getId(); ?></td>
 			<td><?= $entity->getNome(); ?></td>
-			<td></td>
+			<td>
+				<a href="<?php echo $this->url('livraria-admin-interna', array('controller'=>'categorias', 'action'=>'edit', 'id'=>$entity->getId())); ?>">Editar</a>
+				<a href="<?php echo $this->url('livraria-admin-interna', array('controller'=>'categorias', 'action'=>'delete', 'id'=>$entity->getId())); ?>">Deletar</a>
+			</td>
 		</tr>
 	<?php endforeach; ?>
 </table>

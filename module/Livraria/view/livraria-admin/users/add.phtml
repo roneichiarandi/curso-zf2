@@ -1,0 +1,19 @@
+<h1>Novo Usuário</h1>
+
+<?php 
+
+$form = $this->form; 
+
+$form->setAttribute('action', $this->url('livraria-admin', array('controller' => 'users', 'action' => 'add')));
+
+$form->prepare();
+
+echo $this->form()->openTag($form);
+echo $this->formHidden($form->get('id'));
+echo $this->formRow($form->get('nome'));
+echo $this->formRow($form->get('email'));
+echo $this->formRow($form->get('password')) . "<br>";
+echo $this->formSubmit($form->get('submit'));
+echo $this->form()->closeTag();
+
+?>

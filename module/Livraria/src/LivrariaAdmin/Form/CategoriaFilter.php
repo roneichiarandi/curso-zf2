@@ -19,7 +19,7 @@ class CategoriaFilter extends InputFilter {
 				array(
 					'name' => 'NotEmpty',
 					'options' => array(
-						'messages' => array('isEmpty' => 'Nome noo pode estar em branco'),
+						'messages' => array('isEmpty' => 'Nome não pode estar em branco'),
 					)
 				)
 			)

@@ -15,6 +15,15 @@ return array(
                     ),
                 ),
             ),
+            'livraria-admin-interna' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/admin/[:controller[/:action]][/:id]',
+                    'constraints' => array(
+                        'id' => '[0-9]+'
+                    )
+                ),
+            ),
             'livraria-admin' => array(
                 'type' => 'Segment',
                 'options' => array(
@@ -25,15 +34,41 @@ return array(
                     ),
                 ),
             ),
+            'livraria-admin-auth' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route' => '/admin/auth',
+                    'defaults' => array(
+                        'action' => 'index',
+                        'controller' => 'Livraria-admin/auth'
+                    ),
+                ),
+            ),
+            'livraria-admin-logout' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route' => '/admin/auth/logout',
+                    'defaults' => array(
+                        'action' => 'logout',
+                        'controller' => 'Livraria-admin/auth'
+                    ),
+                ),
+            ),
         ),
     ),
     'controllers' => array(
         'invokables' => array(
             'Livraria\Controller\Index' => 'Livraria\Controller\IndexController',
             'categorias' => 'LivrariaAdmin\Controller\CategoriasController',
+            'livros' => 'LivrariaAdmin\Controller\LivrosController',
+            'users' => 'LivrariaAdmin\Controller\UsersController',
+            'livraria-admin/auth' => 'LivrariaAdmin\Controller\AuthController',
         ),
     ),
-
+    'module_layouts' => array(
+        'Livraria' => 'layout/layout',
+        'LivrariaAdmin' => 'layout/layout-admin'
+    ),
     'view_manager' => array(
         'display_not_found_reason' => true,
         'display_exceptions' => true,

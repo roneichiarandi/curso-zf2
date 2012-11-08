@@ -1,0 +1,31 @@
+<h1>Livros</h1>
+<br>
+<p>
+	<a href="<?php echo $this->url('livraria-admin', array('controller'=>'livros', 'action'=>'add')); ?>">Novo</a>
+</p>
+<table class="table table-striped">
+	<tr>
+		<th>#</th>
+		<th>NOME</th>
+		<th>CATEGORIA</th>
+		<th>AUTOR</th>
+		<th>VALOR</th>
+		<th>AÇÃO</th>
+	</tr>
+
+	<?php foreach ($this->data as $entity): ?>
+		<tr>
+			<td><?= $entity->getId(); ?></td>
+			<td><?= $entity->getNome(); ?></td>
+			<td><?= $entity->getCategoria(); ?></td>
+			<td><?= $entity->getAutor(); ?></td>
+			<td><?= $entity->getValor(); ?></td>
+			<td>
+				<a href="<?php echo $this->url('livraria-admin-interna', array('controller'=>'livros', 'action'=>'edit', 'id'=>$entity->getId())); ?>">Editar</a>
+				<a href="<?php echo $this->url('livraria-admin-interna', array('controller'=>'livros', 'action'=>'delete', 'id'=>$entity->getId())); ?>">Deletar</a>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+</table>
+
+<?php echo $this->paginationControl($this->data, 'Sliding', 'paginator'); ?>
